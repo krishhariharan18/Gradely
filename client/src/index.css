@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global design system and reusable utility classes for all pages. */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: radial-gradient(circle at top left, #24104a 0%, #0d0d1a 42%, #1a0a2e 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-panelBorder bg-panel p-5 backdrop-blur-md transition duration-300;
+  }
+
+  .glow-hover {
+    @apply hover:-translate-y-1 hover:shadow-glowCyan;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-panelBorder bg-inputBg px-3 py-2 text-white outline-none transition duration-200 focus:border-cyanAccent focus:shadow-[0_0_0_3px_rgba(0,229,255,0.18)];
+  }
+
+  .calc-value {
+    @apply text-cyanAccent [text-shadow:0_0_10px_rgba(0,229,255,0.35)] transition-all duration-300;
+  }
+
+  .page-enter {
+    @apply animate-pageIn;
+  }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #00e5ff;
+  border-radius: 9999px;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
